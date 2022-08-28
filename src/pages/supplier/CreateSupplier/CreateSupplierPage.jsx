@@ -1,15 +1,13 @@
-import { Typography } from "@mui/material";
 import { PageContainer } from "../../../components/PageContainer/PageContainer";
-import { FormBox } from "./components/FormBox";
+import { PageHeading } from "../../../components/PageHeading/PageHeading";
+import { SupplierForm } from "../../../components/SupplierForm/SupplierForm";
 
 export const CreateSupplierPage = () => {
 	return (
 		<PageContainer>
-			<Typography variant="h4" textTransform="none">
-				Create a Supplier Account
-			</Typography>
+			<PageHeading text="Create a Supplier" />
 
-			<FormBox />
+			<SupplierForm />
 		</PageContainer>
 	);
 };

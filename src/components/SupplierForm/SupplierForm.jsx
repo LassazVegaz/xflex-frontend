@@ -27,7 +27,7 @@ const SmallTextField = styled(TextField)(() =>
 	})
 );
 
-export const FormBox = () => {
+export const SupplierForm = () => {
 	return (
 		<Box
 			sx={{
