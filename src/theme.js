@@ -9,6 +9,9 @@ const themeOptions = {
 		secondary: {
 			main: "#f50057",
 		},
+		shape: {
+			borderRadius: 50,
+		},
 	},
 };
 
