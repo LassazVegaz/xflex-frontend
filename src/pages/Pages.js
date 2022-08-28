@@ -23,6 +23,7 @@ import UpdateOffers2 from "./admin_delivery/UpdateOffers2";
 import { GlobalState } from "../GlobalState";
 import { CreateSupplierPage } from "./supplier/CreateSupplier/CreateSupplierPage";
 import { ViewSuppliersPage } from "./supplier/ViewSuppliers/ViewSuppliersPage";
+import { ViewSupplierPage } from "./supplier/ViewSupplier/ViewSupplierPage";
 
 function Pages() {
 	const state = useContext(GlobalState);
@@ -93,6 +94,7 @@ function Pages() {
 
 			<Route path="/suppliers/create" element={<CreateSupplierPage />} />
 			<Route path="/suppliers" element={<ViewSuppliersPage />} />
+			<Route path="/suppliers/:id" element={<ViewSupplierPage />} />
 
 			<Route path="*" exact component={NotFound} />
 		</Routes>
