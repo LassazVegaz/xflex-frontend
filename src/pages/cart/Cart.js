@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { GlobalState } from "../../../GlobalState";
+import { GlobalState } from "../../GlobalState";
 import axios from "axios";
 // import PaypalButton from './PaypalButton'
 

@@ -20,7 +20,7 @@ import CreateOffers from "./admin_delivery/CreateOffers";
 import UpdateOffers from "./admin_delivery/UpdateOffers";
 import UpdateOffers2 from "./admin_delivery/UpdateOffers2";
 
-import { GlobalState } from "../../GlobalState";
+import { GlobalState } from "../GlobalState";
 
 function Pages() {
 	const state = useContext(GlobalState);
