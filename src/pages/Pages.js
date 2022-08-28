@@ -21,6 +21,7 @@ import UpdateOffers from "./admin_delivery/UpdateOffers";
 import UpdateOffers2 from "./admin_delivery/UpdateOffers2";
 
 import { GlobalState } from "../GlobalState";
+import { CreateSupplierPage } from "./supplier/CreateSupplier/CreateSupplierPage";
 
 function Pages() {
 	const state = useContext(GlobalState);
@@ -88,6 +89,8 @@ function Pages() {
 			<Route path="/DeliveryCreate" exact component={DeliveryCreate} />
 			<Route path="/DeliveryCharges" exact component={DeliveryCharges} />
 			<Route path="/DeliveryOffers" exact component={DeliveryOffers} />
+
+			<Route path="/suppliers/create" element={<CreateSupplierPage />} />
 
 			<Route path="*" exact component={NotFound} />
 		</Routes>
