@@ -4,7 +4,7 @@ import { FormBox } from "./components/FormBox";
 
 export const CreateSupplierPage = () => {
 	return (
-		<PageContainer maxWidth="lg">
+		<PageContainer>
 			<Typography variant="h4" textTransform="none">
 				Create a Supplier Account
 			</Typography>
