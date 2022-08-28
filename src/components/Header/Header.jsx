@@ -2,7 +2,7 @@ import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
 
 const Header = () => {
 	return (
-		<Box flexGrow={1}>
+		<>
 			<AppBar>
 				<Toolbar
 					sx={{
@@ -27,7 +27,11 @@ const Header = () => {
 					</Box>
 				</Toolbar>
 			</AppBar>
-		</Box>
+
+			<Box py={1}></Box>
+
+			<Toolbar />
+		</>
 	);
 };
 
