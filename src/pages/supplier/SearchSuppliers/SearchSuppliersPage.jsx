@@ -20,7 +20,7 @@ const SearchResults = () => {
 	);
 };
 
-export const ViewSuppliersPage = () => {
+export const SearchSuppliersPage = () => {
 	return (
 		<PageContainer>
 			<SearchBox />
