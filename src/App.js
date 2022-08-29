@@ -1,4 +1,5 @@
 import React from "react";
+import { NotificationContainer } from "react-notifications";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import MainPages from "./pages/Pages";
@@ -14,6 +15,8 @@ function App() {
 			</div>
 
 			<ScreenLoader />
+
+			<NotificationContainer />
 		</>
 	);
 }
