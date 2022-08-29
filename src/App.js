@@ -1,21 +1,20 @@
 import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import { DataProvider } from "./GlobalState";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import MainPages from "./pages/Pages";
+import { ScreenLoader } from "./components/ScreenLoader/ScreenLoader";
 
 function App() {
 	return (
-		<DataProvider>
-			<Router>
-				<div className="App">
-					<Header />
-					<MainPages />
-					<Footer />
-				</div>
-			</Router>
-		</DataProvider>
+		<>
+			<div className="App">
+				<Header />
+				<MainPages />
+				<Footer />
+			</div>
+
+			<ScreenLoader />
+		</>
 	);
 }
 
