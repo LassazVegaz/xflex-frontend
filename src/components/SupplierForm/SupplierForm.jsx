@@ -1,5 +1,6 @@
 import { Box, experimental_sx as sx, styled, TextField } from "@mui/material";
 import { FormButton } from "./FormButton";
+import { MUIFormikTextField } from "./MUIFormikTextField";
 import { ProfilePic } from "./ProfilePic";
 
 export const MyBox = styled(Box)(() =>
@@ -27,7 +28,7 @@ const SmallTextField = styled(TextField)(() =>
 	})
 );
 
-export const SupplierForm = () => {
+export const SupplierForm = ({ form, onReset }) => {
 	return (
 		<Box
 			sx={{
@@ -35,7 +36,7 @@ export const SupplierForm = () => {
 				justifyContent: "center",
 			}}
 		>
-			<MyBox>
+			<MyBox component="form" onSubmit={form.handleSubmit}>
 				<ProfilePic />
 
 				<Box
@@ -44,13 +45,37 @@ export const SupplierForm = () => {
 						justifyContent: "space-between",
 					}}
 				>
-					<SmallTextField label="First Name" />
-					<SmallTextField label="Last Name" />
+					<MUIFormikTextField
+						form={form}
+						name="firstName"
+						label="First Name"
+						component={SmallTextField}
+					/>
+					<MUIFormikTextField
+						form={form}
+						name="lastName"
+						label="Last Name"
+						component={SmallTextField}
+					/>
 				</Box>
 
-				<TextField label="Email" type="email" />
-				<TextField label="Phone Number" type="tel" />
-				<TextField label="Company Name" type="text" />
+				<MUIFormikTextField
+					form={form}
+					name="email"
+					label="Email"
+					type="email"
+				/>
+				<MUIFormikTextField
+					form={form}
+					name="phone"
+					label="Phone Number"
+					type="tel"
+				/>
+				<MUIFormikTextField
+					form={form}
+					name="company"
+					label="Company Name"
+				/>
 
 				<Box
 					sx={{
@@ -59,8 +84,16 @@ export const SupplierForm = () => {
 						justifyContent: "space-between",
 					}}
 				>
-					<FormButton variant="outlined">Reset</FormButton>
-					<FormButton variant="contained">Create</FormButton>
+					<FormButton
+						variant="outlined"
+						type="reset"
+						onClick={onReset}
+					>
+						Reset
+					</FormButton>
+					<FormButton variant="contained" type="submit">
+						Create
+					</FormButton>
 				</Box>
 			</MyBox>
 		</Box>
