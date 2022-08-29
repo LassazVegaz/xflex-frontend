@@ -6,15 +6,19 @@ import { ThemeProvider } from "@mui/material";
 import theme from "./theme";
 import { BrowserRouter as Router } from "react-router-dom";
 import { DataProvider } from "./GlobalState";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
 
 const root = createRoot(document.getElementById("root"));
 
 root.render(
-	<ThemeProvider theme={theme}>
-		<DataProvider>
-			<Router>
-				<App />
-			</Router>
-		</DataProvider>
-	</ThemeProvider>
+	<Provider store={store}>
+		<ThemeProvider theme={theme}>
+			<DataProvider>
+				<Router>
+					<App />
+				</Router>
+			</DataProvider>
+		</ThemeProvider>
+	</Provider>
 );
