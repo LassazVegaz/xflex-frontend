@@ -1,7 +1,10 @@
 import { Box, CircularProgress } from "@mui/material";
+import { useSelector } from "react-redux";
 
 export const ScreenLoader = () => {
-	return (
+	const show = useSelector((s) => s.screenLoader.show);
+
+	return show ? (
 		<Box
 			sx={{
 				position: "fixed",
@@ -18,5 +21,5 @@ export const ScreenLoader = () => {
 		>
 			<CircularProgress size={70} />
 		</Box>
-	);
+	) : null;
 };
