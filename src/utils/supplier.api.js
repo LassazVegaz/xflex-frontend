@@ -5,10 +5,19 @@ const createSupplier = async (supplier) => {
 	return res.data;
 };
 
-const searchSuppliers = async (searchText) => {
+const searchSuppliers = async (searchText, pageNo) => {
 	const res = await myAxios.get("/suppliers", {
-		params: { search: searchText },
+		params: {
+			search: searchText,
+			pageNo,
+		},
 	});
+	return res.data;
+};
+
+// get suppliers count
+const getSuppliersCount = async () => {
+	const res = await myAxios.get("/suppliers/count");
 	return res.data;
 };
 
@@ -51,4 +60,5 @@ export const supplierApi = {
 	deleteSupplier,
 	checkEmail,
 	checkPhone,
+	getSuppliersCount,
 };

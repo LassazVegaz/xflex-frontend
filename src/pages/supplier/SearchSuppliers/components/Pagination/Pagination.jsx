@@ -2,15 +2,15 @@ import "./Pagination.scss";
 import { Box } from "@mui/material";
 import ReactPaginate from "react-paginate";
 
-export const Pagination = () => {
+export const Pagination = ({ onPageChange, totalPages }) => {
 	return (
 		<Box className="pagination">
 			<ReactPaginate
 				breakLabel="..."
 				nextLabel=">"
-				onPageChange={() => {}}
-				pageRangeDisplayed={5}
-				pageCount={10}
+				onPageChange={(i) => onPageChange(i.selected)}
+				pageRangeDisplayed={4}
+				pageCount={totalPages}
 				previousLabel="<"
 				renderOnZeroPageCount={null}
 			/>

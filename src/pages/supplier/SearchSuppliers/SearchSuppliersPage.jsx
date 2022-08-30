@@ -59,7 +59,10 @@ export const SearchSuppliersPage = () => {
 
 			<Box pt={5}></Box>
 
-			<Pagination />
+			<Pagination
+				onPageChange={search.setPageNo}
+				totalPages={search.totalPages}
+			/>
 
 			<Box pt={3}></Box>
 		</PageContainer>
