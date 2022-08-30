@@ -8,7 +8,9 @@ import { formHelpers } from "../../../utils/form.helpers";
 import { supplierApi } from "../../../utils/supplier.api";
 
 export const useViewSupplier = (supplierId) => {
-	const [originalSup, setOriginalSup] = useState(null);
+	const [originalSup, setOriginalSup] = useState(
+		formHelpers.suppliers.initialValues
+	);
 	const loader = useScreenLoader();
 	const navigate = useNavigate();
 
