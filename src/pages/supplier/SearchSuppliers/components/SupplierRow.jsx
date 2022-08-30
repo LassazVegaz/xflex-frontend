@@ -1,7 +1,6 @@
 import { Typography, Box } from "@mui/material";
-import imgSrc from "../../../../assets/comp logo 1.jpg";
 
-const CompanyImage = () => {
+const CompanyImage = ({ src }) => {
 	return (
 		<Box
 			sx={{
@@ -12,7 +11,7 @@ const CompanyImage = () => {
 		>
 			<Box
 				component="img"
-				src={imgSrc}
+				src={src}
 				sx={{
 					width: 130,
 					boxShadow: 3,
@@ -24,20 +23,24 @@ const CompanyImage = () => {
 	);
 };
 
-const DetailsPart = () => {
+const DetailsPart = ({ supplierDetails }) => {
 	return (
 		<Box>
 			<Typography variant="h5" fontWeight={700} mb={1}>
-				Adidas
+				{supplierDetails.company}
 			</Typography>
-			<Typography>FirstName LastName</Typography>
-			<Typography>test@test.com</Typography>
-			<Typography>078896633</Typography>
+			<Typography>
+				{supplierDetails.firstName} {supplierDetails.lirstName}
+			</Typography>
+			<Typography>{supplierDetails.email}</Typography>
+			<Typography>{supplierDetails.phone}</Typography>
 		</Box>
 	);
 };
 
-export const SupplierRow = () => {
+export const SupplierRow = ({ supplier }) => {
+	const { picture, ...supplierDetails } = supplier;
+
 	return (
 		<Box
 			sx={{
@@ -49,9 +52,9 @@ export const SupplierRow = () => {
 				py: 1.7,
 			}}
 		>
-			<CompanyImage />
+			<CompanyImage src={picture} />
 
-			<DetailsPart />
+			<DetailsPart supplierDetails={supplierDetails} />
 		</Box>
 	);
 };

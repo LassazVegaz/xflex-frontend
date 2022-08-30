@@ -1,11 +1,11 @@
 import { Box } from "@mui/material";
-import { useState } from "react";
 import { PageContainer } from "../../../components/PageContainer/PageContainer";
 import { Pagination } from "./components/Pagination/Pagination";
 import { SearchBox } from "./components/SearchBox";
 import { SupplierRow } from "./components/SupplierRow";
+import { useSearchSuppliers } from "./search-suppliers.hook";
 
-const SearchResults = () => {
+const SearchResults = ({ suppliers }) => {
 	return (
 		<Box
 			sx={{
@@ -14,26 +14,26 @@ const SearchResults = () => {
 				gap: 4,
 			}}
 		>
-			<SupplierRow />
-			<SupplierRow />
-			<SupplierRow />
+			{suppliers.map((supplier) => (
+				<SupplierRow key={supplier._id} supplier={supplier} />
+			))}
 		</Box>
 	);
 };
 
 export const SearchSuppliersPage = () => {
-	const [searchText, setSearchText] = useState("");
+	const search = useSearchSuppliers();
 
 	return (
 		<PageContainer>
 			<SearchBox
-				text={searchText}
-				onChange={(e) => setSearchText(e.target.value)}
+				text={search.searchText}
+				onChange={(e) => search.setSearchText(e.target.value)}
 			/>
 
 			<Box pt={8}></Box>
 
-			<SearchResults />
+			<SearchResults suppliers={search.suppliers} />
 
 			<Box pt={5}></Box>
 
