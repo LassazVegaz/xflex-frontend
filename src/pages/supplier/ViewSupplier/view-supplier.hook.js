@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useFormik } from "formik";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { NotificationManager } from "react-notifications";
 import { useScreenLoader } from "../../../hooks/loader.hook";
 import { formHelpers } from "../../../utils/form.helpers";
@@ -9,6 +10,7 @@ import { supplierApi } from "../../../utils/supplier.api";
 export const useViewSupplier = (supplierId) => {
 	const [originalSup, setOriginalSup] = useState(null);
 	const loader = useScreenLoader();
+	const navigate = useNavigate();
 
 	const form = useFormik({
 		initialValues: formHelpers.suppliers.initialValues,
@@ -42,6 +44,7 @@ export const useViewSupplier = (supplierId) => {
 		loader.show();
 		try {
 			await supplierApi.deleteSupplier(supplierId);
+			navigate("/suppliers");
 		} catch (error) {
 			NotificationManager.error("Getting supplier data failed");
 			console.error(error);

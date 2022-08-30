@@ -1,4 +1,5 @@
 import { useFormik } from "formik";
+import { useNavigate } from "react-router-dom";
 import { formHelpers } from "../../../utils/form.helpers";
 import { NotificationManager } from "react-notifications";
 import { useScreenLoader } from "../../../hooks/loader.hook";
@@ -6,6 +7,7 @@ import { supplierApi } from "../../../utils/supplier.api";
 
 export const useForm = () => {
 	const loader = useScreenLoader();
+	const navigate = useNavigate();
 
 	const form = useFormik({
 		initialValues: formHelpers.suppliers.initialValues,
@@ -32,8 +34,9 @@ export const useForm = () => {
 		} else if (await supplierApi.checkPhone(form.values.phone)) {
 			form.setFieldError("phone", "Phone already exists");
 		} else {
-			await supplierApi.createSupplier(form.values);
+			const _sup = await supplierApi.createSupplier(form.values);
 			NotificationManager.success("Supplier created successfully");
+			navigate(`/suppliers/${_sup._id}`);
 		}
 	};
 
