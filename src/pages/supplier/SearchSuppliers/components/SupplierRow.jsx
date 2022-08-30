@@ -44,7 +44,7 @@ export const SupplierRow = ({ supplier }) => {
 
 	return (
 		<Box
-			onClick={() => navigate(`suppliers/${supplier._id}`)}
+			onClick={() => navigate(`/suppliers/${supplier._id}`)}
 			sx={{
 				display: "grid",
 				gridTemplateColumns: "2fr 4fr",
