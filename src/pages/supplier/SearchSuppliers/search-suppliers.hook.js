@@ -25,7 +25,7 @@ export const useSearchSuppliers = () => {
 			console.error(err);
 		}
 		setIsLoading(false);
-	}, []);
+	}, [searchText, pageNo]);
 
 	const getSuppliersCount = useCallback(async () => {
 		try {
