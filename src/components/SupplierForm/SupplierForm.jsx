@@ -28,7 +28,35 @@ const SmallTextField = styled(TextField)(() =>
 	})
 );
 
-export const SupplierForm = ({ form, onReset }) => {
+const ButtonsLayer = ({ onReset, showDelete, onDelete }) => {
+	return (
+		<Box
+			sx={{
+				display: "flex",
+				justifyContent: "space-between",
+			}}
+		>
+			<FormButton variant="outlined" type="reset" onClick={onReset}>
+				Reset
+			</FormButton>
+			<FormButton variant="contained" type="submit">
+				Create
+			</FormButton>
+			{showDelete && (
+				<FormButton
+					variant="outlined"
+					color="secondary"
+					type="reset"
+					onClick={onDelete}
+				>
+					Delete
+				</FormButton>
+			)}
+		</Box>
+	);
+};
+
+export const SupplierForm = ({ form, onReset, showDelete, onDelete }) => {
 	return (
 		<Box
 			sx={{
@@ -80,24 +108,13 @@ export const SupplierForm = ({ form, onReset }) => {
 					label="Company Name"
 				/>
 
-				<Box
-					sx={{
-						mt: 5,
-						display: "flex",
-						justifyContent: "space-between",
-					}}
-				>
-					<FormButton
-						variant="outlined"
-						type="reset"
-						onClick={onReset}
-					>
-						Reset
-					</FormButton>
-					<FormButton variant="contained" type="submit">
-						Create
-					</FormButton>
-				</Box>
+				<Box pt={5}></Box>
+
+				<ButtonsLayer
+					onReset={onReset}
+					showDelete={showDelete}
+					onDelete={onDelete}
+				/>
 			</MyBox>
 		</Box>
 	);
