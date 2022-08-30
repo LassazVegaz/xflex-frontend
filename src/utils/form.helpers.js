@@ -8,6 +8,7 @@ export const formHelpers = {
 			email: "",
 			phone: "",
 			company: "",
+			picture: "",
 		},
 		validationSchema: Yup.object().shape({
 			firstName: Yup.string().required("First name is required"),

@@ -37,7 +37,10 @@ export const SupplierForm = ({ form, onReset }) => {
 			}}
 		>
 			<MyBox component="form" onSubmit={form.handleSubmit}>
-				<ProfilePic />
+				<ProfilePic
+					picture={form.values.picture}
+					onPicChnage={(pic) => form.setFieldValue("picture", pic)}
+				/>
 
 				<Box
 					sx={{
