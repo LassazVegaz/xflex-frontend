@@ -1,9 +1,11 @@
-import { Box } from "@mui/material";
+import { Box, CircularProgress } from "@mui/material";
 import { PageContainer } from "../../../components/PageContainer/PageContainer";
 import { Pagination } from "./components/Pagination/Pagination";
 import { SearchBox } from "./components/SearchBox";
 import { SupplierRow } from "./components/SupplierRow";
 import { useSearchSuppliers } from "./search-suppliers.hook";
+
+const SEARCH_ARE_MIN_HEIGHT = "30vh";
 
 const SearchResults = ({ suppliers }) => {
 	return (
@@ -12,11 +14,27 @@ const SearchResults = ({ suppliers }) => {
 				display: "flex",
 				flexDirection: "column",
 				gap: 4,
+				minHeight: SEARCH_ARE_MIN_HEIGHT,
 			}}
 		>
 			{suppliers.map((supplier) => (
 				<SupplierRow key={supplier._id} supplier={supplier} />
 			))}
+		</Box>
+	);
+};
+
+const Loader = () => {
+	return (
+		<Box
+			sx={{
+				display: "flex",
+				justifyContent: "center",
+				alignItems: "center",
+				minHeight: SEARCH_ARE_MIN_HEIGHT,
+			}}
+		>
+			<CircularProgress />
 		</Box>
 	);
 };
@@ -33,7 +51,11 @@ export const SearchSuppliersPage = () => {
 
 			<Box pt={8}></Box>
 
-			<SearchResults suppliers={search.suppliers} />
+			{search.isLoading ? (
+				<Loader />
+			) : (
+				<SearchResults suppliers={search.suppliers} />
+			)}
 
 			<Box pt={5}></Box>
 

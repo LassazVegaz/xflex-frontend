@@ -1,16 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useCallback, useEffect, useState } from "react";
-import { useScreenLoader } from "../../../hooks/loader.hook";
 import { NotificationManager } from "react-notifications";
 import { supplierApi } from "../../../utils/supplier.api";
 
 export const useSearchSuppliers = () => {
 	const [suppliers, setSuppliers] = useState([]);
 	const [searchText, setSearchText] = useState("");
-	const loader = useScreenLoader();
+	const [isLoading, setIsLoading] = useState(false);
 
 	const searchSuppliers = useCallback(async () => {
-		loader.show();
+		setIsLoading(true);
 		try {
 			const response = await supplierApi.searchSuppliers(searchText);
 			setSuppliers(response);
@@ -18,7 +17,7 @@ export const useSearchSuppliers = () => {
 			NotificationManager.error("Searching suppliers failed");
 			console.error(err);
 		}
-		loader.hide();
+		setIsLoading(false);
 	}, []);
 
 	useEffect(() => {
@@ -29,5 +28,6 @@ export const useSearchSuppliers = () => {
 		suppliers,
 		searchText,
 		setSearchText,
+		isLoading,
 	};
 };
