@@ -30,7 +30,7 @@ const DetailsPart = ({ supplierDetails }) => {
 				{supplierDetails.company}
 			</Typography>
 			<Typography>
-				{supplierDetails.firstName} {supplierDetails.lirstName}
+				{supplierDetails.firstName} {supplierDetails.lastName}
 			</Typography>
 			<Typography>{supplierDetails.email}</Typography>
 			<Typography>{supplierDetails.phone}</Typography>
