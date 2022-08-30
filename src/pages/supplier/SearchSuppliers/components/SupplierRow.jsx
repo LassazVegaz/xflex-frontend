@@ -16,7 +16,6 @@ const CompanyImage = ({ src }) => {
 					width: 130,
 					boxShadow: 3,
 					borderRadius: 5,
-					p: 1,
 				}}
 			/>
 		</Box>

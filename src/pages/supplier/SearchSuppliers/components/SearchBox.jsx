@@ -16,7 +16,9 @@ export const SearchBox = ({ text, onChange }) => {
 				}
 				endAdornment={
 					<InputAdornment position="end">
-						<IconButton>
+						<IconButton
+							onClick={() => onChange({ target: { value: "" } })}
+						>
 							<CloseIcon />
 						</IconButton>
 					</InputAdornment>
