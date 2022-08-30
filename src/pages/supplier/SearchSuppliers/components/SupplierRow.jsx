@@ -45,6 +45,7 @@ export const SupplierRow = ({ supplier }) => {
 			sx={{
 				display: "grid",
 				gridTemplateColumns: "2fr 4fr",
+				alignItems: "center",
 				boxShadow: 5,
 				borderColor: "primary.main",
 				border: 1,
