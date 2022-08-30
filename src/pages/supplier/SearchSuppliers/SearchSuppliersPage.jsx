@@ -1,4 +1,5 @@
 import { Box } from "@mui/material";
+import { useState } from "react";
 import { PageContainer } from "../../../components/PageContainer/PageContainer";
 import { Pagination } from "./components/Pagination/Pagination";
 import { SearchBox } from "./components/SearchBox";
@@ -21,9 +22,14 @@ const SearchResults = () => {
 };
 
 export const SearchSuppliersPage = () => {
+	const [searchText, setSearchText] = useState("");
+
 	return (
 		<PageContainer>
-			<SearchBox />
+			<SearchBox
+				text={searchText}
+				onChange={(e) => setSearchText(e.target.value)}
+			/>
 
 			<Box pt={8}></Box>
 

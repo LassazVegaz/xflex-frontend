@@ -1,10 +1,13 @@
 import { Close as CloseIcon, Search as SearchIcon } from "@mui/icons-material";
 import { Box, IconButton, InputAdornment, OutlinedInput } from "@mui/material";
 
-export const SearchBox = () => {
+export const SearchBox = ({ text, onChange }) => {
 	return (
 		<Box className="search-box">
 			<OutlinedInput
+				placeholder="Search"
+				value={text}
+				onChange={onChange}
 				fullWidth
 				startAdornment={
 					<InputAdornment position="start">
