@@ -28,7 +28,7 @@ const SmallTextField = styled(TextField)(() =>
 	})
 );
 
-const ButtonsLayer = ({ onReset, showDelete, onDelete }) => {
+const ButtonsLayer = ({ onReset, showDelete, onDelete, primaryButtonText }) => {
 	return (
 		<Box
 			sx={{
@@ -40,7 +40,7 @@ const ButtonsLayer = ({ onReset, showDelete, onDelete }) => {
 				Reset
 			</FormButton>
 			<FormButton variant="contained" type="submit">
-				Create
+				{primaryButtonText}
 			</FormButton>
 			{showDelete && (
 				<FormButton
@@ -56,7 +56,13 @@ const ButtonsLayer = ({ onReset, showDelete, onDelete }) => {
 	);
 };
 
-export const SupplierForm = ({ form, onReset, showDelete, onDelete }) => {
+export const SupplierForm = ({
+	form,
+	onReset,
+	showDelete,
+	onDelete,
+	primaryButtonText,
+}) => {
 	return (
 		<Box
 			sx={{
@@ -114,6 +120,7 @@ export const SupplierForm = ({ form, onReset, showDelete, onDelete }) => {
 					onReset={onReset}
 					showDelete={showDelete}
 					onDelete={onDelete}
+					primaryButtonText={primaryButtonText}
 				/>
 			</MyBox>
 		</Box>

@@ -17,6 +17,7 @@ export const ViewSupplierPage = () => {
 				onReset={reset}
 				showDelete
 				onDelete={deleteSupplier}
+				primaryButtonText="Update"
 			/>
 		</PageContainer>
 	);

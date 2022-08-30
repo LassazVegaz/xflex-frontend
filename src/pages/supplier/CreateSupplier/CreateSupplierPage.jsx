@@ -14,7 +14,11 @@ export const CreateSupplierPage = () => {
 		<PageContainer>
 			<PageHeading text="Create a Supplier" />
 
-			<SupplierForm form={form} onReset={onReset} />
+			<SupplierForm
+				form={form}
+				onReset={onReset}
+				primaryButtonText="Create"
+			/>
 		</PageContainer>
 	);
 };
