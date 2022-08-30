@@ -19,7 +19,8 @@ export const useSearchSuppliers = () => {
 				searchText,
 				pageNo
 			);
-			setSuppliers(response);
+			setSuppliers(response.suppliers);
+			setTotalPages(Math.ceil(response.count / ITEMS_PER_PAGE));
 		} catch (err) {
 			NotificationManager.error("Searching suppliers failed");
 			console.error(err);
@@ -27,23 +28,9 @@ export const useSearchSuppliers = () => {
 		setIsLoading(false);
 	}, [searchText, pageNo]);
 
-	const getSuppliersCount = useCallback(async () => {
-		try {
-			const response = await supplierApi.getSuppliersCount();
-			setTotalPages(Math.ceil(response / ITEMS_PER_PAGE));
-		} catch (err) {
-			NotificationManager.error("Getting suppliers count failed");
-			console.error(err);
-		}
-	});
-
 	useEffect(() => {
 		searchSuppliers();
 	}, [searchText, pageNo]);
-
-	useEffect(() => {
-		getSuppliersCount();
-	}, []);
 
 	return {
 		suppliers,
