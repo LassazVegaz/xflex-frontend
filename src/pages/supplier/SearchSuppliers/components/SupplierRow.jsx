@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Typography, Box } from "@mui/material";
 
 const CompanyImage = ({ src }) => {
@@ -38,10 +39,12 @@ const DetailsPart = ({ supplierDetails }) => {
 };
 
 export const SupplierRow = ({ supplier }) => {
+	const navigate = useNavigate();
 	const { picture, ...supplierDetails } = supplier;
 
 	return (
 		<Box
+			onClick={() => navigate(`suppliers/${supplier._id}`)}
 			sx={{
 				display: "grid",
 				gridTemplateColumns: "2fr 4fr",
@@ -50,6 +53,7 @@ export const SupplierRow = ({ supplier }) => {
 				borderColor: "primary.main",
 				border: 1,
 				py: 1.7,
+				cursor: "pointer",
 			}}
 		>
 			<CompanyImage src={picture} />
