@@ -1,4 +1,5 @@
 import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
+import { SupplierMenu } from "./SupplierMenu";
 
 const Header = () => {
 	return (
@@ -23,6 +24,7 @@ const Header = () => {
 					<Box>
 						<Button variant="secondary">Shop</Button>
 						<Button variant="secondary">History</Button>
+						<SupplierMenu />
 						<Button variant="secondary">Login</Button>
 					</Box>
 				</Toolbar>
