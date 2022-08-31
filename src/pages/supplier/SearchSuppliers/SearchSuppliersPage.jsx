@@ -1,4 +1,5 @@
 import { Box, CircularProgress } from "@mui/material";
+import { Helmet } from "react-helmet";
 import { PageContainer } from "../../../components/PageContainer/PageContainer";
 import { Pagination } from "./components/Pagination/Pagination";
 import { SearchBox } from "./components/SearchBox";
@@ -44,6 +45,10 @@ export const SearchSuppliersPage = () => {
 
 	return (
 		<PageContainer>
+			<Helmet>
+				<title>Search Suppliers</title>
+			</Helmet>
+
 			<SearchBox
 				text={search.searchText}
 				onChange={(e) => search.setSearchText(e.target.value)}
