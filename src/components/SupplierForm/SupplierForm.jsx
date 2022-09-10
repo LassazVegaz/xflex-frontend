@@ -1,5 +1,5 @@
 import { Box, experimental_sx as sx, styled, TextField } from "@mui/material";
-import { FormButton } from "./FormButton";
+import { MyButton } from "../MyButton/MyButton";
 import { MUIFormikTextField } from "./MUIFormikTextField";
 import { ProfilePic } from "./ProfilePic";
 
@@ -36,21 +36,21 @@ const ButtonsLayer = ({ onReset, showDelete, onDelete, primaryButtonText }) => {
 				justifyContent: "space-between",
 			}}
 		>
-			<FormButton variant="outlined" type="reset" onClick={onReset}>
+			<MyButton variant="outlined" type="reset" onClick={onReset}>
 				Reset
-			</FormButton>
-			<FormButton variant="contained" type="submit">
+			</MyButton>
+			<MyButton variant="contained" type="submit">
 				{primaryButtonText}
-			</FormButton>
+			</MyButton>
 			{showDelete && (
-				<FormButton
+				<MyButton
 					variant="outlined"
 					color="secondary"
 					type="reset"
 					onClick={onDelete}
 				>
 					Delete
-				</FormButton>
+				</MyButton>
 			)}
 		</Box>
 	);
@@ -62,6 +62,7 @@ export const SupplierForm = ({
 	showDelete,
 	onDelete,
 	primaryButtonText,
+	sx,
 }) => {
 	return (
 		<Box
@@ -70,7 +71,7 @@ export const SupplierForm = ({
 				justifyContent: "center",
 			}}
 		>
-			<MyBox component="form" onSubmit={form.handleSubmit}>
+			<MyBox component="form" onSubmit={form.handleSubmit} sx={sx}>
 				<ProfilePic
 					picture={form.values.picture}
 					onPicChnage={(pic) => form.setFieldValue("picture", pic)}

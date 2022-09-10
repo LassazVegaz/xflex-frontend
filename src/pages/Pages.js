@@ -24,6 +24,7 @@ import { GlobalState } from "../GlobalState";
 import { CreateSupplierPage } from "./supplier/CreateSupplier/CreateSupplierPage";
 import { ViewSupplierPage } from "./supplier/ViewSupplier/ViewSupplierPage";
 import { SearchSuppliersPage } from "./supplier/SearchSuppliers/SearchSuppliersPage";
+import RequestsPage from "./supplier/Requests/RequestsPage";
 
 function Pages() {
 	const state = useContext(GlobalState);
@@ -95,6 +96,8 @@ function Pages() {
 			<Route path="/suppliers/create" element={<CreateSupplierPage />} />
 			<Route path="/suppliers" element={<SearchSuppliersPage />} />
 			<Route path="/suppliers/:id" element={<ViewSupplierPage />} />
+
+			<Route path="/suppliers/:id/requests" element={<RequestsPage />} />
 
 			<Route path="*" exact component={NotFound} />
 		</Routes>
