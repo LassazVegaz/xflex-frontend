@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import { useState } from "react";
 import RoundPlusButon from "../../../../components/RoundPlusIcon/RoundPlusButon";
-import AddRequestDialog from "./AddRequestDialog";
+import AddRequestDialog from "./AddRequestDialog/AddRequestDialog";
 
 const MiddlePart = () => {
 	const [openDialog, setOpenDialog] = useState(true);
