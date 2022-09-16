@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 import { PageContainer } from "../../../components/PageContainer/PageContainer";
 import SmallLoader from "../../../components/SmallLoader/SmallLoader";
 import REQUESTS_STATUESES from "../../../constants/sup-reqs-statuses";
+import MiddlePart from "./components/MiddlePart";
 import RequestsList from "./components/RequestsList";
 import RequestsTabs from "./components/RequestsTabs";
 import { useRequests } from "./requests.hook";
@@ -20,6 +21,8 @@ const RequestsPage = () => {
 			<RequestsTabs tab={tabIndex} onChange={setTabIndex} />
 
 			<PageContainer>
+				<MiddlePart />
+
 				{isLoading ? (
 					<SmallLoader minHeight="30vh" />
 				) : (
