@@ -14,7 +14,7 @@ const RoundPlusButon = ({ sideLength, onClick, fontSize, ...sx }) => {
 			}}
 			onClick={onClick}
 		>
-			<AddIcon fontSize="large" />
+			<AddIcon fontSize={fontSize} />
 		</IconButton>
 	);
 };
