@@ -1,32 +1,34 @@
-import { Add as AddIcon } from "@mui/icons-material";
-import { Box, IconButton, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
+import { useState } from "react";
+import RoundPlusButon from "../../../../components/RoundPlusIcon/RoundPlusButon";
+import AddRequestDialog from "./AddRequestDialog";
 
 const MiddlePart = () => {
-	return (
-		<Box
-			sx={{
-				display: "flex",
-				alignItems: "center",
-				justifyContent: "center",
-				columnGap: 3,
-			}}
-		>
-			<Typography variant="h5" fontWeight={700}>
-				Pending Requests
-			</Typography>
+	const [openDialog, setOpenDialog] = useState(true);
 
-			<IconButton
+	return (
+		<>
+			<Box
 				sx={{
-					color: "primary.main",
-					fontWeight: "bold",
-					border: "1px solid",
-					width: 42,
-					height: 42,
+					display: "flex",
+					alignItems: "center",
+					justifyContent: "center",
+					columnGap: 3,
 				}}
 			>
-				<AddIcon fontSize="large" />
-			</IconButton>
-		</Box>
+				<Typography variant="h5" fontWeight={700}>
+					Pending Requests
+				</Typography>
+
+				<RoundPlusButon
+					sideLength={42}
+					onClick={() => setOpenDialog(true)}
+					fontSize="large"
+				/>
+			</Box>
+
+			<AddRequestDialog open={openDialog} />
+		</>
 	);
 };
 
