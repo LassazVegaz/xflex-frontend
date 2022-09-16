@@ -13,7 +13,7 @@ const RequestsTabs = ({ tab, onChange }) => {
 		>
 			<Tab label="Pending" value={REQUESTS_STATUESES.PENDING} />
 			<Tab label="Recieved" value={REQUESTS_STATUESES.RECEIVED} />
-			<Tab label="Cancelled" value={REQUESTS_STATUESES.CANCLLED} />
+			<Tab label="Cancelled" value={REQUESTS_STATUESES.CANCELLED} />
 		</Tabs>
 	);
 };
