@@ -1,6 +1,7 @@
-import { Box, CircularProgress } from "@mui/material";
+import { Box } from "@mui/material";
 import { Helmet } from "react-helmet";
 import { PageContainer } from "../../../components/PageContainer/PageContainer";
+import SmallLoader from "../../../components/SmallLoader/SmallLoader";
 import { Pagination } from "./components/Pagination/Pagination";
 import { SearchBox } from "./components/SearchBox";
 import { SupplierRow } from "./components/SupplierRow";
@@ -25,21 +26,6 @@ const SearchResults = ({ suppliers }) => {
 	);
 };
 
-const Loader = () => {
-	return (
-		<Box
-			sx={{
-				display: "flex",
-				justifyContent: "center",
-				alignItems: "center",
-				minHeight: SEARCH_ARE_MIN_HEIGHT,
-			}}
-		>
-			<CircularProgress />
-		</Box>
-	);
-};
-
 export const SearchSuppliersPage = () => {
 	const search = useSearchSuppliers();
 
@@ -57,7 +43,7 @@ export const SearchSuppliersPage = () => {
 			<Box pt={8}></Box>
 
 			{search.isLoading ? (
-				<Loader />
+				<SmallLoader minHeight={SEARCH_ARE_MIN_HEIGHT} />
 			) : (
 				<SearchResults suppliers={search.suppliers} />
 			)}
