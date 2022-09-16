@@ -32,7 +32,11 @@ const Header = () => {
 
 			<Box py={1}></Box>
 
-			<Toolbar />
+			<Toolbar
+				sx={{
+					minHeight: "57px !important",
+				}}
+			/>
 		</>
 	);
 };
