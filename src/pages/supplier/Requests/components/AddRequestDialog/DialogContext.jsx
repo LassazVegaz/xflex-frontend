@@ -19,7 +19,7 @@ const DialogContextProvider = ({ children, open, onClose }) => {
 				loader.show();
 				await supplierRequestApi.createRequest(id, values.items);
 				NotificationManager.success("Request sent successfully");
-				closeDialog();
+				closeDialog(true);
 			} catch (error) {
 				NotificationManager.error("Error sending request");
 				console.error(error);
@@ -47,9 +47,9 @@ const DialogContextProvider = ({ children, open, onClose }) => {
 		form.setFieldValue("items", items);
 	};
 
-	const closeDialog = () => {
+	const closeDialog = (created = false) => {
 		form.resetForm();
-		onClose();
+		onClose(created);
 	};
 
 	return (

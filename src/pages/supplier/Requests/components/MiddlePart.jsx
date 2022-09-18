@@ -3,7 +3,7 @@ import { useState } from "react";
 import RoundPlusButon from "../../../../components/RoundPlusIcon/RoundPlusButon";
 import AddRequestDialog from "./AddRequestDialog/AddRequestDialog";
 
-const MiddlePart = () => {
+const MiddlePart = ({ onNewOneCreated }) => {
 	const [openDialog, setOpenDialog] = useState(false);
 
 	return (
@@ -29,7 +29,10 @@ const MiddlePart = () => {
 
 			<AddRequestDialog
 				open={openDialog}
-				onClose={() => setOpenDialog(false)}
+				onClose={(newOneCreated) => {
+					newOneCreated && onNewOneCreated();
+					setOpenDialog(false);
+				}}
 			/>
 		</>
 	);

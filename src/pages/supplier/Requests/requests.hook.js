@@ -31,5 +31,9 @@ export const useRequests = () => {
 		getRequests();
 	}, [getRequests]);
 
-	return { requests, isLoading };
+	return {
+		requests,
+		isLoading,
+		refetch: getRequests,
+	};
 };

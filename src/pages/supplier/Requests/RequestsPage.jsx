@@ -9,7 +9,7 @@ import RequestsTabs from "./components/RequestsTabs";
 import { useRequests } from "./requests.hook";
 
 const RequestsPage = () => {
-	const { requests, isLoading } = useRequests();
+	const { requests, isLoading, refetch } = useRequests();
 	const [tabIndex, setTabIndex] = useState(REQUESTS_STATUESES.PENDING);
 
 	return (
@@ -21,7 +21,7 @@ const RequestsPage = () => {
 			<RequestsTabs tab={tabIndex} onChange={setTabIndex} />
 
 			<PageContainer>
-				<MiddlePart />
+				<MiddlePart onNewOneCreated={refetch} />
 
 				{isLoading ? (
 					<SmallLoader minHeight="30vh" />
