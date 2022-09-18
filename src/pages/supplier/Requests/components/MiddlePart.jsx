@@ -1,10 +1,23 @@
 import { Box, Typography } from "@mui/material";
+import { useEffect } from "react";
 import { useState } from "react";
 import RoundPlusButon from "../../../../components/RoundPlusIcon/RoundPlusButon";
 import AddRequestDialog from "./AddRequestDialog/AddRequestDialog";
+import REQUESTS_STATUESES from "../../../../constants/sup-reqs-statuses";
 
-const MiddlePart = ({ onNewOneCreated }) => {
+const MiddlePart = ({ onNewOneCreated, status }) => {
 	const [openDialog, setOpenDialog] = useState(false);
+	const [titlePrefix, setTitlePrefix] = useState("");
+
+	useEffect(() => {
+		if (status === REQUESTS_STATUESES.PENDING) {
+			setTitlePrefix("Pending");
+		} else if (status === REQUESTS_STATUESES.RECEIVED) {
+			setTitlePrefix("Received");
+		} else if (status === REQUESTS_STATUESES.CANCELLED) {
+			setTitlePrefix("Cancelled");
+		}
+	}, [status]);
 
 	return (
 		<>
@@ -17,14 +30,16 @@ const MiddlePart = ({ onNewOneCreated }) => {
 				}}
 			>
 				<Typography variant="h5" fontWeight={700}>
-					Pending Requests
+					{titlePrefix} Requests
 				</Typography>
 
-				<RoundPlusButon
-					sideLength={42}
-					onClick={() => setOpenDialog(true)}
-					fontSize="large"
-				/>
+				{status === REQUESTS_STATUESES.PENDING && (
+					<RoundPlusButon
+						sideLength={42}
+						onClick={() => setOpenDialog(true)}
+						fontSize="large"
+					/>
+				)}
 			</Box>
 
 			<AddRequestDialog

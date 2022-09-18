@@ -3,6 +3,8 @@ import moment from "moment/moment";
 import { useEffect } from "react";
 import { useState } from "react";
 import { MyButton } from "../../../../components/MyButton/MyButton";
+import REQUESTS_STATUESES from "../../../../constants/sup-reqs-statuses";
+import useRequestsStatus from "./requests-status.hook";
 
 const RequestItem = ({ item }) => {
 	return (
@@ -48,7 +50,9 @@ const LeftBox = ({ request }) => {
 	);
 };
 
-const RightBox = () => {
+const RightBox = ({ id, onUpdate }) => {
+	const status = useRequestsStatus(id);
+
 	return (
 		<Box
 			sx={{
@@ -57,17 +61,33 @@ const RightBox = () => {
 				rowGap: 2,
 			}}
 		>
-			<MyButton variant="outlined" color="info" size="small">
+			<MyButton
+				variant="outlined"
+				color="info"
+				size="small"
+				onClick={async () => {
+					await status.receiveRequest();
+					onUpdate();
+				}}
+			>
 				Received
 			</MyButton>
-			<MyButton variant="outlined" color="secondary" size="small">
+			<MyButton
+				variant="outlined"
+				color="secondary"
+				size="small"
+				onClick={async () => {
+					await status.cancelRequest();
+					onUpdate();
+				}}
+			>
 				Cancelled
 			</MyButton>
 		</Box>
 	);
 };
 
-const Request = ({ request }) => {
+const Request = ({ request, onUpdate, status }) => {
 	return (
 		<Box
 			sx={{
@@ -84,12 +104,14 @@ const Request = ({ request }) => {
 		>
 			<LeftBox request={request} />
 
-			<RightBox />
+			{status === REQUESTS_STATUESES.PENDING && (
+				<RightBox id={request._id} onUpdate={onUpdate} />
+			)}
 		</Box>
 	);
 };
 
-const RequestsList = ({ requests }) => {
+const RequestsList = ({ requests, onUpdate, status }) => {
 	return (
 		<Box
 			sx={{
@@ -99,7 +121,12 @@ const RequestsList = ({ requests }) => {
 			}}
 		>
 			{requests.map((req) => (
-				<Request request={req} key={req._id} />
+				<Request
+					request={req}
+					key={req._id}
+					onUpdate={onUpdate}
+					status={status}
+				/>
 			))}
 		</Box>
 	);

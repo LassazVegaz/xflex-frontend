@@ -1,6 +1,6 @@
 const REQUESTS_STATUESES = {
 	PENDING: "pending",
-	RECEIVED: "received",
+	RECEIVED: "recieved",
 	CANCELLED: "cancelled",
 };
 

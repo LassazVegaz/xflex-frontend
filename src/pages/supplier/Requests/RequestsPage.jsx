@@ -22,14 +22,18 @@ const RequestsPage = () => {
 			<RequestsTabs tab={tabIndex} onChange={setTabIndex} />
 
 			<PageContainer>
-				<MiddlePart onNewOneCreated={refetch} />
+				<MiddlePart onNewOneCreated={refetch} status={tabIndex} />
 
 				<Box pt={5} />
 
 				{isLoading ? (
 					<SmallLoader minHeight="30vh" />
 				) : (
-					<RequestsList requests={requests[tabIndex] ?? []} />
+					<RequestsList
+						requests={requests[tabIndex] ?? []}
+						onUpdate={refetch}
+						status={tabIndex}
+					/>
 				)}
 			</PageContainer>
 		</>
