@@ -24,13 +24,11 @@ const validationSchema = Yup.object().shape({
 	),
 });
 
-const useForm = () => {
+const useForm = ({ onSubmit }) => {
 	const form = useFormik({
 		initialValues,
 		validationSchema,
-		onSubmit: (values) => {
-			console.log(values);
-		},
+		onSubmit,
 	});
 
 	return form;

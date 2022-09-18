@@ -10,18 +10,13 @@ import { MyButton } from "../../../../../components/MyButton/MyButton";
 import { DialogContext, DialogContextProvider } from "./DialogContext";
 import MiddleLayer from "./MiddleLayer";
 
-const ActualDialog = ({ open, onClose }) => {
-	const { form } = useContext(DialogContext);
-
-	const clearAndClose = () => {
-		form.resetForm();
-		onClose();
-	};
+const ActualDialog = () => {
+	const { form, open, closeDialog } = useContext(DialogContext);
 
 	return (
 		<Dialog
 			open={open}
-			onClose={clearAndClose}
+			onClose={closeDialog}
 			sx={{
 				"& .MuiDialog-paper": {
 					borderRadius: 5,
@@ -52,7 +47,7 @@ const ActualDialog = ({ open, onClose }) => {
 				>
 					<MyButton
 						variant="outlined"
-						onClick={clearAndClose}
+						onClick={closeDialog}
 						color="secondary"
 					>
 						Cancel
@@ -69,8 +64,8 @@ const ActualDialog = ({ open, onClose }) => {
 
 const AddRequestDialog = ({ open, onClose }) => {
 	return (
-		<DialogContextProvider>
-			<ActualDialog open={open} onClose={onClose} />
+		<DialogContextProvider open={open} onClose={onClose}>
+			<ActualDialog />
 		</DialogContextProvider>
 	);
 };
