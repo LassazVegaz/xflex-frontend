@@ -4,7 +4,7 @@ import RoundPlusButon from "../../../../components/RoundPlusIcon/RoundPlusButon"
 import AddRequestDialog from "./AddRequestDialog/AddRequestDialog";
 
 const MiddlePart = () => {
-	const [openDialog, setOpenDialog] = useState(true);
+	const [openDialog, setOpenDialog] = useState(false);
 
 	return (
 		<>
@@ -27,7 +27,10 @@ const MiddlePart = () => {
 				/>
 			</Box>
 
-			<AddRequestDialog open={openDialog} />
+			<AddRequestDialog
+				open={openDialog}
+				onClose={() => setOpenDialog(false)}
+			/>
 		</>
 	);
 };
