@@ -1,5 +1,4 @@
 import { Box, styled, Typography } from "@mui/material";
-import { useEffect } from "react";
 import { useContext } from "react";
 import RoundPlusButon from "../../../../../components/RoundPlusIcon/RoundPlusButon";
 import { DialogContext } from "./DialogContext";
@@ -32,12 +31,6 @@ const HeaderRow = () => {
 const MiddleBox = () => {
 	const { form } = useContext(DialogContext);
 
-	useEffect(() => {
-		console.log("values: ", form.values);
-		console.log("errors: ", form.errors);
-		console.log("touched: ", form.touched);
-	}, [form]);
-
 	return (
 		<Box
 			sx={{
@@ -59,6 +52,8 @@ const MiddleBox = () => {
 };
 
 const MiddleLayer = () => {
+	const { addItem } = useContext(DialogContext);
+
 	return (
 		<Box
 			sx={{
@@ -70,7 +65,7 @@ const MiddleLayer = () => {
 		>
 			<MiddleBox />
 
-			<RoundPlusButon sideLength={30} />
+			<RoundPlusButon sideLength={30} onClick={addItem} />
 		</Box>
 	);
 };

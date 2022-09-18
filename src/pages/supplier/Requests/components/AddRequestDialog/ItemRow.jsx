@@ -1,25 +1,37 @@
 import { DeleteOutline as DeleteIcon } from "@mui/icons-material";
 import { Box, IconButton, styled, TextField } from "@mui/material";
+import { useContext } from "react";
+import { DialogContext } from "./DialogContext";
 
-const MyTextField = styled(TextField)(() => ({
+const getFieldProps = (form, index, field) => ({
+	name: `items[${index}].${field}`,
+	value: form.values.items[index][field],
+	error: form.errors.items && form.errors.items[index]?.[field],
+	touched: form.touched.items && form.touched.items[index]?.[field],
+});
+
+const MyTextFieldStyled = styled(TextField)(() => ({
 	"& legend": { display: "none" },
 	"& fieldset": { top: 0 },
 }));
 
-const ItemRow = ({ form, index }) => {
-	const code = {
-		name: `items[${index}].code`,
-		value: form.values.items[index].code,
-		error: form.errors.items && form.errors.items[index].code,
-		touched: form.touched.items && form.touched.items[index].code,
-	};
+const MyTextField = ({ form, index, field }) => {
+	const props = getFieldProps(form, index, field);
 
-	const amount = {
-		name: `items[${index}].amount`,
-		value: form.values.items[index].amount,
-		error: form.errors.items && form.errors?.items[index].amount,
-		touched: form.touched.items && form.touched?.items[index].amount,
-	};
+	return (
+		<MyTextFieldStyled
+			size="small"
+			name={props.name}
+			value={props.value}
+			onChange={form.handleChange}
+			error={props.touched && Boolean(props.error)}
+			helperText={props.touched && props.error}
+		/>
+	);
+};
+
+const ItemRow = ({ form, index }) => {
+	const { removeItem } = useContext(DialogContext);
 
 	return (
 		<Box
@@ -29,25 +41,13 @@ const ItemRow = ({ form, index }) => {
 				columnGap: 3,
 			}}
 		>
-			<MyTextField
-				size="small"
-				name={code.name}
-				value={code.value}
-				onChange={form.handleChange}
-				error={code.touched && Boolean(code.error)}
-				helperText={code.touched && code.error}
-			/>
+			<MyTextField form={form} index={index} field="code" />
 
-			<MyTextField
-				size="small"
-				name={amount.name}
-				value={amount.value}
-				onChange={form.handleChange}
-				error={amount.touched && Boolean(amount.error)}
-				helperText={amount.touched && amount.error}
-			/>
+			<MyTextField form={form} index={index} field="amount" />
 
-			<IconButton>
+			<IconButton
+				onClick={() => removeItem(form.values.items[index].__id)}
+			>
 				<DeleteIcon color="secondary" />
 			</IconButton>
 		</Box>
