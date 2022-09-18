@@ -14,7 +14,15 @@ const ActualDialog = ({ open, onClose }) => {
 	const { form } = useContext(DialogContext);
 
 	return (
-		<Dialog open={open} onClose={onClose}>
+		<Dialog
+			open={open}
+			onClose={onClose}
+			sx={{
+				"& .MuiDialog-paper": {
+					borderRadius: 5,
+				},
+			}}
+		>
 			<Box component="form" onSubmit={form.handleSubmit}>
 				<DialogTitle
 					sx={{
@@ -23,17 +31,28 @@ const ActualDialog = ({ open, onClose }) => {
 				>
 					Send a Request to the Supplier
 				</DialogTitle>
+
 				<DialogContent>
 					<Box pt={3} />
 
 					<MiddleLayer />
 				</DialogContent>
+
 				<DialogActions
 					sx={{
-						justifyContent: "center",
+						justifyContent: "space-between",
 						py: 2,
+						px: 3,
 					}}
 				>
+					<MyButton
+						variant="outlined"
+						onClick={onClose}
+						color="secondary"
+					>
+						Cancel
+					</MyButton>
+
 					<MyButton variant="contained" type="submit">
 						Send
 					</MyButton>
