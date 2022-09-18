@@ -1,4 +1,7 @@
 import { Box, Typography } from "@mui/material";
+import moment from "moment/moment";
+import { useEffect } from "react";
+import { useState } from "react";
 import { MyButton } from "../../../../components/MyButton/MyButton";
 
 const RequestItem = ({ item }) => {
@@ -10,19 +13,33 @@ const RequestItem = ({ item }) => {
 			}}
 		>
 			<Typography flexGrow={2}>{item.code}</Typography>
-			<Typography flexGrow={1}>{item.amount}</Typography>
+			<Typography flexGrow={1} textAlign="right">
+				{item.amount}
+			</Typography>
 		</Box>
 	);
 };
 
 const LeftBox = ({ request }) => {
+	const [date, setDate] = useState("");
+
+	useEffect(() => {
+		setDate(moment(request.date).format("Do MMMM YYYY"));
+	}, [request.date]);
+
 	return (
 		<Box>
-			<Typography>{request.date}</Typography>
+			<Typography variant="h5">{date}</Typography>
 
 			<Box pt={3} />
 
-			<Box>
+			<Box
+				sx={{
+					display: "flex",
+					flexDirection: "column",
+					rowGap: 1,
+				}}
+			>
 				{request.items.map((item) => (
 					<RequestItem item={item} key={item._id} />
 				))}
