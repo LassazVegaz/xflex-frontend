@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import { useState } from "react";
 import { Helmet } from "react-helmet";
 import { PageContainer } from "../../../components/PageContainer/PageContainer";
@@ -22,6 +23,8 @@ const RequestsPage = () => {
 
 			<PageContainer>
 				<MiddlePart onNewOneCreated={refetch} />
+
+				<Box pt={5} />
 
 				{isLoading ? (
 					<SmallLoader minHeight="30vh" />
