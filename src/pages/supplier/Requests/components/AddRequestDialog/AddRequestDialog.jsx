@@ -13,10 +13,15 @@ import MiddleLayer from "./MiddleLayer";
 const ActualDialog = ({ open, onClose }) => {
 	const { form } = useContext(DialogContext);
 
+	const clearAndClose = () => {
+		form.resetForm();
+		onClose();
+	};
+
 	return (
 		<Dialog
 			open={open}
-			onClose={onClose}
+			onClose={clearAndClose}
 			sx={{
 				"& .MuiDialog-paper": {
 					borderRadius: 5,
@@ -47,7 +52,7 @@ const ActualDialog = ({ open, onClose }) => {
 				>
 					<MyButton
 						variant="outlined"
-						onClick={onClose}
+						onClick={clearAndClose}
 						color="secondary"
 					>
 						Cancel
