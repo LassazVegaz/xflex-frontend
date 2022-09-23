@@ -14,10 +14,10 @@ export const formHelpers = {
 			firstName: Yup.string().required("First name is required"),
 			lastName: Yup.string().required("Last name is required"),
 			email: Yup.string()
-				.email("Email is invalid")
-				.required("Email is required"),
-			phone: Yup.string().required("Phone is required"),
-			company: Yup.string().required("Company is required"),
+				.email("Email address is invalid")
+				.required("Email address is required"),
+			phone: Yup.string().required("Phone number is required"),
+			company: Yup.string().required("Company name is required"),
 		}),
 	},
 };

@@ -52,6 +52,11 @@ const checkPhone = async (phone) => {
 	return res.data;
 };
 
+const generateReport = async (supplierId) => {
+	const res = await myAxios.get(`/suppliers/${supplierId}/report`);
+	return res.data;
+};
+
 export const supplierApi = {
 	createSupplier,
 	searchSuppliers,
@@ -61,4 +66,5 @@ export const supplierApi = {
 	checkEmail,
 	checkPhone,
 	getSuppliersCount,
+	generateReport,
 };

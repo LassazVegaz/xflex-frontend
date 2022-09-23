@@ -2,7 +2,7 @@ import { Avatar, experimental_sx, styled } from "@mui/material";
 
 const IMG_SIDE = 120;
 
-const MyAvatar = styled(Avatar)(() =>
+const MyAvatar = styled(Avatar)(({ theme }) =>
 	experimental_sx({
 		width: IMG_SIDE,
 		height: IMG_SIDE,
@@ -10,6 +10,7 @@ const MyAvatar = styled(Avatar)(() =>
 		top: -60,
 		left: "50%",
 		transform: "translateX(-50%)",
+		border: `1px solid ${theme.palette.primary.main}`,
 	})
 );
 

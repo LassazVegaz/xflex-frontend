@@ -30,9 +30,15 @@ export const useForm = () => {
 
 	const _createSupplier = async () => {
 		if (await supplierApi.checkEmail(form.values.email)) {
-			form.setFieldError("email", "Email already exists");
+			form.setFieldError(
+				"email",
+				"This email address already has an account"
+			);
 		} else if (await supplierApi.checkPhone(form.values.phone)) {
-			form.setFieldError("phone", "Phone already exists");
+			form.setFieldError(
+				"phone",
+				"This phone number already has an account"
+			);
 		} else {
 			const _sup = await supplierApi.createSupplier(form.values);
 			NotificationManager.success("Supplier created successfully");
