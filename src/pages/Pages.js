@@ -33,65 +33,45 @@ function Pages() {
 
 	return (
 		<Routes>
-			<Route path="/" exact component={Products} />
-			<Route path="/detail/:id" exact component={DetailProduct} />
+			<Route path="/" element={<Products />} />
+			<Route path="/detail/:id" element={<DetailProduct />} />
 
-			<Route
-				path="/login"
-				exact
-				component={isLogged ? NotFound : Login}
-			/>
-			<Route
-				path="/register"
-				exact
-				component={isLogged ? NotFound : Register}
-			/>
+			{!isLogged && (
+				<>
+					<Route path="/login" element={<Login />} />
+					<Route path="/register" element={<Register />} />
+				</>
+			)}
 
-			<Route
-				path="/category"
-				exact
-				component={isAdmin ? Categories : NotFound}
-			/>
-			<Route
-				path="/create_product"
-				exact
-				component={isAdmin ? CreateProduct : NotFound}
-			/>
-			<Route
-				path="/edit_product/:id"
-				exact
-				component={isAdmin ? CreateProduct : NotFound}
-			/>
-			<Route
-				path="/AdminDeliveryHome"
-				exact
-				component={AdminDeliveryHome}
-			/>
-			<Route
-				path="/ShowOrderDetails"
-				exact
-				component={ShowOrderDetails}
-			/>
-			<Route path="/CreateOffers" exact component={CreateOffers} />
-			<Route path="/UpdateOffers" exact component={UpdateOffers} />
-			<Route path="/UpdateOffers2/:id" exact component={UpdateOffers2} />
+			{isAdmin && (
+				<>
+					<Route path="/category" element={<Categories />} />
+					<Route path="/create_product" element={<CreateProduct />} />
+					<Route
+						path="/edit_product/:id"
+						element={<CreateProduct />}
+					/>
+				</>
+			)}
 
-			<Route
-				path="/history"
-				exact
-				component={isLogged ? OrderHistory : NotFound}
-			/>
-			<Route
-				path="/history/:id"
-				exact
-				component={isLogged ? OrderDetails : NotFound}
-			/>
+			{isLogged && (
+				<>
+					<Route path="/history" element={<OrderHistory />} />
+					<Route path="/history/:id" element={<OrderDetails />} />
+				</>
+			)}
 
-			<Route path="/cart" exact component={Cart} />
-			<Route path="/DeliveryHome" exact component={DeliveryHome} />
-			<Route path="/DeliveryCreate" exact component={DeliveryCreate} />
-			<Route path="/DeliveryCharges" exact component={DeliveryCharges} />
-			<Route path="/DeliveryOffers" exact component={DeliveryOffers} />
+			<Route path="/AdminDeliveryHome" element={<AdminDeliveryHome />} />
+			<Route path="/ShowOrderDetails" element={<ShowOrderDetails />} />
+			<Route path="/CreateOffers" element={<CreateOffers />} />
+			<Route path="/UpdateOffers" element={<UpdateOffers />} />
+			<Route path="/UpdateOffers2/:id" element={<UpdateOffers2 />} />
+
+			<Route path="/cart" element={<Cart />} />
+			<Route path="/DeliveryHome" element={<DeliveryHome />} />
+			<Route path="/DeliveryCreate" element={<DeliveryCreate />} />
+			<Route path="/DeliveryCharges" element={<DeliveryCharges />} />
+			<Route path="/DeliveryOffers" element={<DeliveryOffers />} />
 
 			<Route path="/suppliers/create" element={<CreateSupplierPage />} />
 			<Route path="/suppliers" element={<SearchSuppliersPage />} />
@@ -99,7 +79,7 @@ function Pages() {
 
 			<Route path="/suppliers/:id/requests" element={<RequestsPage />} />
 
-			<Route path="*" exact component={NotFound} />
+			<Route path="*" element={<NotFound />} />
 		</Routes>
 	);
 }
