@@ -5,6 +5,7 @@ import Close from "./icon/close.svg";
 import Cart from "./icon/cart.svg";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { SupplierMenu } from "./SupplierMenu";
 
 function Header() {
 	const state = useContext(GlobalState);
@@ -33,6 +34,7 @@ function Header() {
 				<li>
 					<Link to="/AdminDeliveryHome">Delivery</Link>
 				</li>
+				<SupplierMenu />
 			</>
 		);
 	};

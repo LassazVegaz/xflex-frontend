@@ -28,7 +28,19 @@ export const SupplierMenu = () => {
 
 	return (
 		<>
-			<Button variant="secondary" id="basic-button" onClick={handleClick}>
+			<Button
+				variant="primary"
+				id="basic-button"
+				onClick={handleClick}
+				sx={{
+					color: "whitesmoke",
+					fontWeight: "400",
+					fontSize: "15px",
+					pb: 1.35,
+					fontFamily:
+						'-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
+				}}
+			>
 				Suppliers
 			</Button>
 			<Menu
