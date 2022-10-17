@@ -1,13 +1,16 @@
 .categories{
-    max-width: 3000px;
+    
+
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     justify-content: space-around;
-    margin: 30px auto;
 }
 .categories form{
     width: 290px;
     margin-bottom: 20px;
+    
 }
 .categories label{
     display: block;
@@ -93,6 +96,7 @@ tr:hover{
     font-style: italic;
 }
 .cge1{
+    margin-top: -200px;
     position: absolute;
     top:177px;
     color:wheat;
@@ -103,6 +107,7 @@ tr:hover{
 
 }
 .cge2{
+    margin-top: -200px;
     position: absolute;
     top:705px;
     color:wheat;

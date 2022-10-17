@@ -89,7 +89,7 @@ export default class DeliveryCharges extends Component {
           
           <br/><br/><br/><br/><br/>
            
-          <div className="cge1">
+          <div className="cge3">
         
 
           <br/>

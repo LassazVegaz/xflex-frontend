@@ -8,8 +8,8 @@ const initialState = {
     product_id: '',
     title: '',
     price: 0,
-    description: 'How to and tutorial videos of cool CSS effect, Web Design ideas,JavaScript libraries, Node.',
-    content: 'Welcome to our channel Dev AT. Here you can learn web designing, UI/UX designing, html css tutorials, css animations and css effects, javascript and jquery tutorials and related so on.',
+    description: 'Add your description about the product',
+    content: 'Add your content about the product, it can be either about sizes and colours of the product',
     category: '',
     _id: ''
 }
@@ -122,7 +122,9 @@ function CreateProduct() {
         display: images ? "block" : "none"
     }
     return (
+        <div class="w3-card-4 w3-margin" style={{width:'1460px',height:'770px'}} >
         <div className="create_product">
+            
             <div className="upload">
                 <input type="file" name="file" id="file_up" onChange={handleUpload}/>
                 {
@@ -184,6 +186,7 @@ function CreateProduct() {
                 <button type="submit">{onEdit? "Update" : "Create"}</button>
             </form>
         </div>
+         </div>
     )
 }
 

@@ -57,10 +57,11 @@ function Categories() {
         <div className="container">
         <div className="chrges">
               
-        <br/><h4 className="aw" ><b>Create Categories</b></h4><hr/>
+
         <div className="categories">
             
                <br/><img height="100%" width="100%" src={'/static/images/category4.jpg'}/>
+
 
                <br/><div className="chge">
             <h5>Dear Valued Manager,</h5>

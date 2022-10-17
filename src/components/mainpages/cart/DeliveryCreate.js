@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import './DeliveryCreate.css'
+import { Scale } from '@mui/icons-material';
 
 
 export default class CreateDelivery extends Component {
@@ -71,13 +72,13 @@ export default class CreateDelivery extends Component {
            <br/>
 
 
-            <div class="w3-card-4 w3-margin" style={{width:'800px',height:'900px'}} >
+            <div class="w3-card-4 w3-margin" style={{width:'1000px',height:'1050px'}} >
                     <br/><form className="cte"> 
 
 <center>
                     <div style={{fontFamily:'Times New Roman',fontWeight:"bold"}}>
 <label class="container1" >Colombo-$2
-  <input type="radio"   value="$2" name="DeliveryFee"   onChange={(rbvalue)=>{this.setState({DeliveryFee:rbvalue.target.value})}}/>
+  <input type="radio" style={{transform:'Scale(0.5)'}}  value="$2" name="DeliveryFee"   onChange={(rbvalue)=>{this.setState({DeliveryFee:rbvalue.target.value})}}/>
   <span class="checkmark"></span>
 </label>
 </div>
@@ -85,49 +86,49 @@ export default class CreateDelivery extends Component {
 
 <div style={{fontFamily:'Times New Roman',fontWeight:"bold"}}>
 <label class="container1">Kurunegala-$4
-  <input type="radio"  value="$4" name="DeliveryFee"   onChange={(rbvalue)=>{this.setState({DeliveryFee:rbvalue.target.value})}}/>
+  <input type="radio" style={{transform:'Scale(0.5)'}}  value="$4" name="DeliveryFee"   onChange={(rbvalue)=>{this.setState({DeliveryFee:rbvalue.target.value})}}/>
   <span class="checkmark"></span>
 </label>
 </div>
 
 <div style={{fontFamily:'Times New Roman',fontWeight:"bold"}}>
 <label class="container1">Kandy-$5
-  <input type="radio"  value="$5" name="DeliveryFee"   onChange={(rbvalue)=>{this.setState({DeliveryFee:rbvalue.target.value})}}/>
+  <input type="radio" style={{transform:'Scale(0.5)'}}  value="$5" name="DeliveryFee"   onChange={(rbvalue)=>{this.setState({DeliveryFee:rbvalue.target.value})}}/>
   <span class="checkmark"></span>
 </label>
 </div>
 
 <div style={{fontFamily:'Times New Roman',fontWeight:"bold"}}>
 <label class="container1">Kegalle-$3
-  <input type="radio"  value="$3" name="DeliveryFee"   onChange={(rbvalue)=>{this.setState({DeliveryFee:rbvalue.target.value})}}/>
+  <input type="radio" style={{transform:'Scale(0.5)'}}  value="$3" name="DeliveryFee"   onChange={(rbvalue)=>{this.setState({DeliveryFee:rbvalue.target.value})}}/>
   <span class="checkmark"></span>
 </label>
 </div>
 
 <div style={{fontFamily:'Times New Roman',fontWeight:"bold"}}>
 <label class="container1">Galle-$6
-  <input type="radio"  value="$6" name="DeliveryFee"   onChange={(rbvalue)=>{this.setState({DeliveryFee:rbvalue.target.value})}}/>
+  <input type="radio"  style={{transform:'Scale(0.5)'}}  value="$6" name="DeliveryFee"   onChange={(rbvalue)=>{this.setState({DeliveryFee:rbvalue.target.value})}}/>
   <span class="checkmark"></span>
 </label>
 </div>
 
 <div style={{fontFamily:'Times New Roman',fontWeight:"bold"}}>
 <label class="container1">Trinkomalee-$7
-  <input type="radio"  value="$7" name="DeliveryFee"   onChange={(rbvalue)=>{this.setState({DeliveryFee:rbvalue.target.value})}}/>
+  <input type="radio"  style={{transform:'Scale(0.5)'}} value="$7" name="DeliveryFee"   onChange={(rbvalue)=>{this.setState({DeliveryFee:rbvalue.target.value})}}/>
   <span class="checkmark"></span>
 </label>
 </div>
 
 <div style={{fontFamily:'Times New Roman',fontWeight:"bold"}}>
 <label class="container1">Anuradapura-$5
-  <input type="radio"  value="$5" name="DeliveryFee"   onChange={(rbvalue)=>{this.setState({DeliveryFee:rbvalue.target.value})}}/>
+  <input type="radio"  style={{transform:'Scale(0.5)'}} value="$5" name="DeliveryFee"   onChange={(rbvalue)=>{this.setState({DeliveryFee:rbvalue.target.value})}}/>
   <span class="checkmark"></span>
 </label>
 </div>
 
 <div style={{fontFamily:'Times New Roman',fontWeight:"bold"}}>
 <label class="container1">Jaffna-$8
-  <input type="radio"  value="$8" name="DeliveryFee"   onChange={(rbvalue)=>{this.setState({DeliveryFee:rbvalue.target.value})}}/>
+  <input type="radio"  style={{transform:'Scale(0.5)'}} value="$8" name="DeliveryFee"   onChange={(rbvalue)=>{this.setState({DeliveryFee:rbvalue.target.value})}}/>
   <span class="checkmark"></span>
 </label>
 </div>
