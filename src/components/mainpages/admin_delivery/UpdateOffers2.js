@@ -50,7 +50,9 @@ export default class UpdateOffers2 extends Component {
                     }
                 )
             }
+            
         })
+        alert("not updated successfully");
     }
 
     componentDidMount(){
@@ -119,6 +121,7 @@ export default class UpdateOffers2 extends Component {
                             <i className="far fa-check-square"></i>
                             &nbsp; Update Offer
                         </button>
+                        <center><button type="button" class="btn btn-warning"  ><a href = "/UpdateOffers"  style={{textDecoration:'none', color:'white'}}>Click here</a></button></center>
                          </center>
    
                     </form>

@@ -2,40 +2,112 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import './CreateOffers.css';
 
+
+
+
+
+const initialState ={
+    
+    offerID:"",
+    offerName:"",
+    description:"",
+    phone:"",
+    email:"",
+    offerIDerror:"",
+    offerNameerror:"",
+    descriptionerror:"",
+    phoneerror:"",
+    emailerror:""
+        
+
+
+}
+
 export default class CreateOffers extends Component {
 
     constructor(props) {
         super(props);
-        this.state={
-            offerID:"",
-            offerName:"",
-            description:""
-            
-        }
+        this.state=initialState;
     }
 
-    handleInputChange = (e) =>{
-        const {name,value} = e.target;
+    handleInputChange = (e) =>{ 
+        const isCheckbox = e.target.type==="checkbox";
 
         this.setState({
-            ...this.state,
-            [name]:value
-        })
-    }
+            [e.target.name]:isCheckbox
+            ?e.target.Checked
+            :e.target.value
+       
+   });
+   };
+
+
+
+
+
+    validate=()=>{
+       
+
+        let offerIDerror="";
+        let offerNameerror="";
+      
+        let  descriptionerror="";
+        let phoneerror="";
+        let  emailerror="";
+      
+
+
+
+        if(!this.state.offerID){
+            offerIDerror ='*offer ID cannot be Null';
+            alert("Not inserted successfully");
+        }
+        if(!this.state.offerName){
+            offerNameerror='*Offer name cannot be Null';
+        }
+     
+
+        
+        if(!this.state.description){
+            descriptionerror ='*Description  cannot be Null';
+        }
+
+        if(!this.state.phone){
+            phoneerror ='*Phone number cannot be Null';
+        }
+        if(!this.state.email){
+            emailerror ='*Email cannot be Null';
+        }
+        
+
+       
+
+        if ( offerIDerror ||  offerNameerror ||   descriptionerror||  phoneerror ||   emailerror  ){
+            this.setState({ offerIDerror , offerNameerror ,   descriptionerror,  phoneerror ,   emailerror });
+            return false;
+        }
+
+        return true;
+    };
+
 
     onSubmit=(e) =>{
 
         e.preventDefault();
-
-        const {offerID,offerName,description} = this.state;
+        const isValid =this.validate();
+        const {offerID,offerName,description,phone,email} = this.state;
 
         const data = {
             offerID:offerID,
             offerName:offerName,
-            description:description
+            description:description,
+            phone:phone,
+            email:email
         
         }
 
+
+        if(isValid){
         console.log(data)
 
         axios.post("api/offer/save",data).then((res) =>{
@@ -45,13 +117,18 @@ export default class CreateOffers extends Component {
                     {
                         offerID:"",
                         offerName:"",
-                        description:""
+                        description:"",
+                        phone:"",
+                        email:"",
     
                     }
+                    
                 )
             }
+            
         })
     }
+};
 
     render(){
         return (
@@ -94,6 +171,7 @@ export default class CreateOffers extends Component {
            
                 
                 <br/><form className="ofy" >
+                <div style={{color:'red',textAlign:'left'}}>{this.state.offerIDerror}</div>
                     <div className="form-group" style={{marginBottom:"15px"}}>
                         <label style={{marginBottom:"5px"}}>Offer ID Number</label>
                         <input type="text"
@@ -103,7 +181,7 @@ export default class CreateOffers extends Component {
                         value={this.state.offerID}
                         onChange={this.handleInputChange} required/>
                     </div>
-
+                    <div style={{color:'red',textAlign:'left'}}>{this.state.offerNameerror}</div>
                     <div className="form-group" style={{marginBottom:"15px"}}>
                         <label style={{marginBottom:"5px"}}>How you name the new offer ?</label>
                         <input type="text"
@@ -114,8 +192,35 @@ export default class CreateOffers extends Component {
                         onChange={this.handleInputChange} required/>
                     </div>
 
+                    <div style={{color:'red',textAlign:'left'}}>{this.state.phoneerror}</div>
                     <div className="form-group" style={{marginBottom:"15px"}}>
-                        <label style={{marginBottom:"5px"}}>What is about the new offer ?</label>
+                        <label style={{marginBottom:"5px"}}>Phone Number</label>
+                        <input type="text"
+                        className="form-control"
+                        name="phone"
+                        placeholder="Enter Phone Number"
+                        value={this.state.phone}
+                        onChange={this.handleInputChange} required/>
+                    </div>
+
+
+
+                    <div style={{color:'red',textAlign:'left'}}>{this.state.emailerror}</div>
+                    <div className="form-group" style={{marginBottom:"15px"}}>
+                        <label style={{marginBottom:"5px"}}>Email</label>
+                        <input type="email"
+                        className="form-control"
+                        name="email"
+                        placeholder="Enter Email"
+                        value={this.state.email}
+                        onChange={this.handleInputChange} required/>
+                    </div>
+
+
+
+              <div style={{color:'red',textAlign:'left'}}>{this.state.descriptionerror}</div>
+                    <div className="form-group" style={{marginBottom:"15px"}}>
+                        <label style={{marginBottom:"5px"}}>Description</label>
                         <input type="text"
                         className="form-control"
                         name="description"
@@ -124,10 +229,13 @@ export default class CreateOffers extends Component {
                         onChange={this.handleInputChange} required/>
                     </div>
 
+
+
                     <br/><center><button className="btn btn-success" type="submit" style={{marginBottom:"15px"}} onClick={this.onSubmit}>
                         <i className="far fa-check-square"></i>
                         &nbsp; Save Offer
                     </button>
+                    <center><button type="button" class="btn btn-warning"  ><a href = "/UpdateOffers"  style={{textDecoration:'none', color:'white'}}>Click here</a></button></center>
                      </center>   
                 </form>
                 
