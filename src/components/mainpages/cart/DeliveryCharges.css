@@ -1,6 +1,6 @@
 .chrges{
     width: 100%;
-    height: 940px;
+    height: 700px;
 } .aw{
     font-family: "Lucida Console", "Courier New", monospace;
 }
@@ -19,6 +19,7 @@
     bottom: 115px;
     background-color: grey;
     color: black;
+    top: 300px;
     
 }
 th,td{
