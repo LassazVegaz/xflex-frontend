@@ -84,7 +84,7 @@ onDelete = (id) =>{
 <div>
 
     
-            <img src="/static/images/h2.png" width="100%" height="500px"/>
+           
             <div class="card"  >
   
   <div class="w3-container w3-green" >
