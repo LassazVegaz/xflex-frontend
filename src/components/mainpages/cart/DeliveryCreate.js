@@ -175,6 +175,8 @@ export default class CreateDelivery extends Component {
                         <i className="far fa-check-square"></i>
                         &nbsp; Confirm Delivery
                     </button>
+
+                    <button class="w3-button w3-black" style={{marginTop:'20px',width:'165px',height:'80px',float: 'center'}}><a href="/DeliveryReport" style={{textDecoration:"none", color:"white",}}> Generate Delivery Receipt </a></button><br/>
                     </center>
 
                 </form>

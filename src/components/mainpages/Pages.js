@@ -20,6 +20,8 @@ import CreateOffers from './admin_delivery/CreateOffers'
 import UpdateOffers from './admin_delivery/UpdateOffers'
 import UpdateOffers2 from './admin_delivery/UpdateOffers2'
 
+import DeliveryReport from './cart/DeliveryReport'
+
 
 import {GlobalState} from '../../GlobalState'
 
@@ -55,6 +57,8 @@ function Pages() {
             <Route path="/DeliveryCreate" exact component={DeliveryCreate} />
             <Route path="/DeliveryCharges" exact component={DeliveryCharges} />
             <Route path="/DeliveryOffers" exact component={DeliveryOffers} />
+            <Route path="/DeliveryReport" exact component={DeliveryReport} />
+
 
 
 
