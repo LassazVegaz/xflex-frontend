@@ -4,6 +4,7 @@ import axios from 'axios';
 
 
 
+
 export default class DeliveryReport extends Component{
 constructor(props){
   super(props);
@@ -18,6 +19,7 @@ constructor(props){
 componentDidMount(){
   this.retrivePayments(); 
 }
+
 
 
 
@@ -115,7 +117,7 @@ retrivePayments(){
         </div>
         </div>
        
-
+      
 
         </div>
       </div>

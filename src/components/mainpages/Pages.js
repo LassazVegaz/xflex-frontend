@@ -22,6 +22,11 @@ import UpdateOffers2 from './admin_delivery/UpdateOffers2'
 
 import DeliveryReport from './cart/DeliveryReport'
 
+import CreateFeedback from './history/CreateFeedback'
+import EditFeedback from './history/EditFeedback'
+import Feedback from './history/Feedback'
+import FeedbackDetails from './history/FeedbackDetails'
+
 
 import {GlobalState} from '../../GlobalState'
 
@@ -58,6 +63,11 @@ function Pages() {
             <Route path="/DeliveryCharges" exact component={DeliveryCharges} />
             <Route path="/DeliveryOffers" exact component={DeliveryOffers} />
             <Route path="/DeliveryReport" exact component={DeliveryReport} />
+
+            <Route path="/feedback" exact component={Feedback} />
+            <Route path="/feedback/edit/:id" exact component={EditFeedback}></Route>
+            <Route path="/feedback/create" exact component={CreateFeedback}></Route>
+            <Route path="/feedback/emp/:id" exact component={FeedbackDetails}></Route>
 
 
 
