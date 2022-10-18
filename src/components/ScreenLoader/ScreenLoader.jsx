@@ -16,7 +16,7 @@ export const ScreenLoader = () => {
 				justifyContent: "center",
 				alignItems: "center",
 				backgroundColor: "rgba(0, 0, 0, 0.5)",
-				zIndex: 1000,
+				zIndex: 1400,
 			}}
 		>
 			<CircularProgress size={70} />
