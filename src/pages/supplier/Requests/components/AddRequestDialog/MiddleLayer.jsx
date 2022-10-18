@@ -45,7 +45,14 @@ const MiddleBox = () => {
 			<HeaderRow />
 
 			{form.values.items.map((item, index) => {
-				return <ItemRow key={item.__id} form={form} index={index} />;
+				return (
+					<ItemRow
+						key={item.__id}
+						form={form}
+						index={index}
+						disableDelete={form.values.items.length === 1}
+					/>
+				);
 			})}
 		</Box>
 	);
