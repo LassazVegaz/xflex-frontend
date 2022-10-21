@@ -30,7 +30,7 @@ const MyTextField = ({ form, index, field }) => {
 	);
 };
 
-const ItemRow = ({ form, index }) => {
+const ItemRow = ({ form, index, disableDelete = false }) => {
 	const { removeItem } = useContext(DialogContext);
 
 	return (
@@ -47,8 +47,9 @@ const ItemRow = ({ form, index }) => {
 
 			<IconButton
 				onClick={() => removeItem(form.values.items[index].__id)}
+				disabled={disableDelete}
 			>
-				<DeleteIcon color="secondary" />
+				<DeleteIcon color={disableDelete ? "disabled" : "secondary"} />
 			</IconButton>
 		</Box>
 	);
