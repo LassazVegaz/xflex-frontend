@@ -35,6 +35,7 @@ function Header() {
         return(
             <>
                 <li><Link to="/history">History</Link></li>
+                <li><Link to="/feedback">{isAdmin ? '' : 'Feedback'}</Link></li>
                 <li><Link to="/" onClick={logoutUser}>Logout</Link></li>
             </>
         )
@@ -62,6 +63,7 @@ function Header() {
 
             <ul style={styleMenu}>
                 <li><Link to="/">{isAdmin ? 'Products' : 'Shop'}</Link></li>
+               
 
                 {isAdmin && adminRouter()}
 
@@ -79,6 +81,8 @@ function Header() {
 
             </ul>
 
+          
+
             {
                 isAdmin ? '' 
                 :<div className="cart-icon">
@@ -88,6 +92,7 @@ function Header() {
                     </Link>
                 </div>
             }
+           
             
         </header>
     )

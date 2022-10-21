@@ -32,7 +32,7 @@ export default class DeliveryCharges extends Component {
                
                <br/><h4 className="aw" ><b>Delivery Charge Calculation</b></h4><hr/>
 
-               <br/><img height="100%" width="100%" src={'/static/images/s.jpg'}/>
+               <br/><img height="100%" width="100%" src={'/static/images/clothing2.jpeg'}/>
 
             <br/><div className="chge">
             <h5>Dear Valued Customer,</h5>
@@ -45,26 +45,42 @@ export default class DeliveryCharges extends Component {
         <table className="table1"> 
           <thead>
           <tr>
-              <th><b><u><h5>No of Km</h5></u></b></th>
+              <th><b><u><h5>Delivery Areas</h5></u></b></th>
               <th><b><u><h5>Amount We Charge</h5></u></b></th>
           </tr>
           </thead>
           <tbody>
               <tr>
-                 <td>Within Galle Town</td> 
-                 <td>Rs.200.00</td>
+                 <td>Colombo 1-12 areas</td> 
+                 <td>$2</td>
               </tr>
               <tr>
-              <td>Below 5 km</td>
-              <td>Rs.250.00</td>
+              <td>Kurunegala</td>
+              <td>$4</td>
               </tr>
               <tr>
-                <td>Between 5 - 10 km</td>
-                <td>Rs.350.00</td>
+                <td>Kandy</td>
+                <td>$5</td>
               </tr>
               <tr>
-                <td>Above 10 km</td>
-                <td>Rs.400.00</td>
+                <td>Kegalle</td>
+                <td>$3</td>
+              </tr>
+              <tr>
+                <td>Galle</td>
+                <td>$6</td>
+              </tr>
+              <tr>
+                <td>Trinkomalee</td>
+                <td>$7</td>
+              </tr>
+              <tr>
+                <td>Anuradapura</td>
+                <td>$5</td>
+              </tr>
+              <tr>
+                <td>Jaffna</td>
+                <td>$8</td>
               </tr>
 
           </tbody>
@@ -73,50 +89,16 @@ export default class DeliveryCharges extends Component {
           
           <br/><br/><br/><br/><br/>
            
-          <div className="cge1">
-        <form onSubmit={this.handleSubmit}>
+          <div className="cge3">
         
-         <label style={{fontSize:"22px"}}>
-            Select your Delivery Town
-          &nbsp;&nbsp;<select value={this.state.value} onChange={this.handleChange}>
-          <option value="Galle">Galle</option>
-          <option value="Colombo">Colombo</option>
-          <option value="Matara">Matara</option>
-          <option value="Hambanthota">Hambanthota</option>
-          </select>
-          </label>
-            
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Submit" />
-          <br/>
-
-          </form>
 
           <br/>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           
           
-          <div className="cgess2" >
-
-            <p>
-              <h4> Your Delivery Area is :</h4> {this.state.value}
-              <h4>Total Payment = </h4>
-              {(() => {
-                  switch (this.state.value) {
-                      case "Galle":   return "Rs.260.00";
-                      case "Colombo": return "Rs.310.00";
-                      case "Matara":  return "Rs.410.00";
-                      default:      return "Rs.460.00";
-                        }
-                 })()}
-
-                  <br/><br/>
-                 <h6>**Rs.60.00 of a service charge is added to your total bill.</h6>
-
-            </p>
-
-          </div>
+         
         
-          <br/><i class="fas fa-hand-point-right" style={{color:'red'}}></i><a className="cgerr"  style={{color:'white',fontSize:'30px'}} href="/DeliveryCreate"> Click Here to confirm delivery</a>
+          <br/><i class="fas fa-hand-point-right" style={{color:'red'}}></i><a style={{color:'white',fontSize:'30px',textAlign:'left'}} href="/DeliveryCreate"> Click Here to confirm delivery</a>
           
           </div> 
           

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import './DeliveryCreate.css'
+import { Scale } from '@mui/icons-material';
 
 
 export default class CreateDelivery extends Component {
@@ -8,7 +9,8 @@ export default class CreateDelivery extends Component {
     constructor(props) {
         super(props);
         this.state={
-            MainCity:"",
+            DeliveryFee:"",
+          
             Address:"",
             Instruction:"",
            Note:""
@@ -29,10 +31,11 @@ export default class CreateDelivery extends Component {
 
         e.preventDefault();
 
-        const {MainCity,Address,Instruction,Note} = this.state;
+        const {DeliveryFee,Address,Instruction,Note} = this.state;
 
         const data = {
-           MainCity:MainCity,
+            DeliveryFee:DeliveryFee,
+         
             Address:Address,
             Instruction:Instruction,
             Note:Note
@@ -46,7 +49,8 @@ export default class CreateDelivery extends Component {
                 alert("Delivery Information Inserted Successfully!!")
                 this.setState(
                     {
-                       MainCity:"",
+                        DeliveryFee:"",
+                   
                        Address:"",
                         Instruction:"",
                         Note:""
@@ -67,50 +71,72 @@ export default class CreateDelivery extends Component {
            
            <br/>
 
-           <div id="demo" className="carousel slide" data-ride="carousel">
 
-            <ul className="carousel-indicators">
-            <li data-target="#demo" data-slide-to="0" className="active"></li>
-            <li data-target="#demo" data-slide-to="1"></li>
-            <li data-target="#demo" data-slide-to="2"></li>
-            </ul>
-  
-            <div className="carousel-inner" style={{height:"100%",width:"100%"}}>
-            <div className="carousel-item active">
-            <img src="/static/images/d4.png" width="100%" height="300px"/>
-            </div>
-            <div className="carousel-item">
-            <img src="/static/images/d3.jpg" width="100%" height="300px"/>
-            </div>
-         
-            <div className="carousel-item">
-            <img src="/static/images/q.jpg" width="100%" height="300px"/>
-            </div>
-            </div>
-  
-            <a className="carousel-control-prev" href="#demo" data-slide="prev">
-            <span className="carousel-control-prev-icon"></span>
-            </a>
-            <a className="carousel-control-next" href="#demo" data-slide="next">
-            <span className="carousel-control-next-icon"></span>
-            </a>
-            </div>
-
-           
+            <div class="w3-card-4 w3-margin" style={{width:'1000px',height:'1050px'}} >
                     <br/><form className="cte"> 
 
-                    <div className="form-group" style={{marginBottom:"15px",fontWeight:"bold"}}>
-                        <label style={{marginBottom:"5px"}}>Main City</label>
-                        <input type="text" 
-                        className="form-control"
-                        name="MainCity"
-                        placeholder="Enter nearest City"
-                        value={this.state.MainCity}
-                        required
-                        onChange={this.handleInputChange}/>
-                    </div>
+<center>
+                    <div style={{fontFamily:'Times New Roman',fontWeight:"bold"}}>
+<label class="container1" >Colombo-$2
+  <input type="radio" style={{transform:'Scale(0.5)'}}  value="$2" name="DeliveryFee"   onChange={(rbvalue)=>{this.setState({DeliveryFee:rbvalue.target.value})}}/>
+  <span class="checkmark"></span>
+</label>
+</div>
 
-              
+
+<div style={{fontFamily:'Times New Roman',fontWeight:"bold"}}>
+<label class="container1">Kurunegala-$4
+  <input type="radio" style={{transform:'Scale(0.5)'}}  value="$4" name="DeliveryFee"   onChange={(rbvalue)=>{this.setState({DeliveryFee:rbvalue.target.value})}}/>
+  <span class="checkmark"></span>
+</label>
+</div>
+
+<div style={{fontFamily:'Times New Roman',fontWeight:"bold"}}>
+<label class="container1">Kandy-$5
+  <input type="radio" style={{transform:'Scale(0.5)'}}  value="$5" name="DeliveryFee"   onChange={(rbvalue)=>{this.setState({DeliveryFee:rbvalue.target.value})}}/>
+  <span class="checkmark"></span>
+</label>
+</div>
+
+<div style={{fontFamily:'Times New Roman',fontWeight:"bold"}}>
+<label class="container1">Kegalle-$3
+  <input type="radio" style={{transform:'Scale(0.5)'}}  value="$3" name="DeliveryFee"   onChange={(rbvalue)=>{this.setState({DeliveryFee:rbvalue.target.value})}}/>
+  <span class="checkmark"></span>
+</label>
+</div>
+
+<div style={{fontFamily:'Times New Roman',fontWeight:"bold"}}>
+<label class="container1">Galle-$6
+  <input type="radio"  style={{transform:'Scale(0.5)'}}  value="$6" name="DeliveryFee"   onChange={(rbvalue)=>{this.setState({DeliveryFee:rbvalue.target.value})}}/>
+  <span class="checkmark"></span>
+</label>
+</div>
+
+<div style={{fontFamily:'Times New Roman',fontWeight:"bold"}}>
+<label class="container1">Trinkomalee-$7
+  <input type="radio"  style={{transform:'Scale(0.5)'}} value="$7" name="DeliveryFee"   onChange={(rbvalue)=>{this.setState({DeliveryFee:rbvalue.target.value})}}/>
+  <span class="checkmark"></span>
+</label>
+</div>
+
+<div style={{fontFamily:'Times New Roman',fontWeight:"bold"}}>
+<label class="container1">Anuradapura-$5
+  <input type="radio"  style={{transform:'Scale(0.5)'}} value="$5" name="DeliveryFee"   onChange={(rbvalue)=>{this.setState({DeliveryFee:rbvalue.target.value})}}/>
+  <span class="checkmark"></span>
+</label>
+</div>
+
+<div style={{fontFamily:'Times New Roman',fontWeight:"bold"}}>
+<label class="container1">Jaffna-$8
+  <input type="radio"  style={{transform:'Scale(0.5)'}} value="$8" name="DeliveryFee"   onChange={(rbvalue)=>{this.setState({DeliveryFee:rbvalue.target.value})}}/>
+  <span class="checkmark"></span>
+</label>
+</div>
+</center>
+
+
+             
+              <br></br>
 
                     <div className="form-group" style={{marginBottom:"15px",fontWeight:"bold"}}>
                         <label style={{marginBottom:"5px"}}>Address</label>
@@ -143,14 +169,18 @@ export default class CreateDelivery extends Component {
                     </div>
 
                     <br/><center>
-                    <button class="w3-button w3-khaki"type="submit" style={{textDecoration:"none", color:"white"}}onClick={this.onSubmit}>
+
+                    <button className="btn btn-primary"  type="submit" style={{marginTop:'20px',width:'160px',height:'80px',float: 'center'}} onClick={this.onSubmit}> 
+                    
                         <i className="far fa-check-square"></i>
                         &nbsp; Confirm Delivery
                     </button>
+
+                    <button class="w3-button w3-black" style={{marginTop:'20px',width:'165px',height:'80px',float: 'center'}}><a href="/DeliveryReport" style={{textDecoration:"none", color:"white",}}> Generate Delivery Receipt </a></button><br/>
                     </center>
 
                 </form>
-            
+            </div>
                 </div>
                 </div> 
 		 
