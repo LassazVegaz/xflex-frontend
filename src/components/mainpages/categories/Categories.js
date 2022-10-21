@@ -2,6 +2,7 @@ import React, {useState, useContext} from 'react'
 import {GlobalState} from '../../../GlobalState'
 import axios from 'axios'
 
+
 function Categories() {
     const state = useContext(GlobalState)
     const [categories] = state.categoriesAPI.categories
@@ -53,7 +54,24 @@ function Categories() {
     }
 
     return (
+        <div className="container">
+        <div className="chrges">
+              
+
         <div className="categories">
+            
+               <br/><img height="100%" width="100%" src={'/static/images/category4.jpg'}/>
+
+
+               <br/><div className="chge">
+            <h5>Dear Valued Manager,</h5>
+                <p>                 It is a great pleasure to see you standing with us for your managing products experience. It is possible to introduce new shopping categories for the customers right now.
+                    If it is needed to be created new categories according to newly introduced products , What you have to do is create the relavant category and then it will be displayed in the right corner!!!
+                </p>
+            </div>
+
+            <div className="cge2">
+           
             <form onSubmit={createCategory}>
                 <label htmlFor="category">Category</label>
                 <input type="text" name="category" value={category} required
@@ -61,7 +79,9 @@ function Categories() {
 
                 <button type="submit">{onEdit? "Update" : "Create"}</button>
             </form>
-
+            </div>
+            
+            <div className="cge1">
             <div className="col">
                 {
                     categories.map(category => (
@@ -75,6 +95,9 @@ function Categories() {
                     ))
                 }
             </div>
+            </div>
+        </div>
+        </div>
         </div>
     )
 }
